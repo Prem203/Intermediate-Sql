@@ -115,6 +115,8 @@ HAVING SUM(c.Milliseconds) > 7200000;
 
 ### Query 9: Creative addition: Define a new meaningful query using at least three tables, and some window function. Explain clearly what your query achieves, and what the results mean.
 
+This query lists the top 3 longest tracks for each artist, sorted by the duration of the track in descending order. The query uses the ROW_NUMBER() window function to assign a rank to each track based on its duration within the group of tracks for each artist.
+
 ```
 SELECT a.name AS ArtistName, c.name AS TrackName, c.Milliseconds / 1000 AS TrackDurationInSeconds, d.TrackRank
 FROM artists a
