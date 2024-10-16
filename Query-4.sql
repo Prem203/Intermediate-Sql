@@ -1,0 +1,7 @@
+SELECT State, COUNT(DISTINCT CustomerId) AS TotalCustomers
+FROM customers
+WHERE State IS NOT NULL
+AND CustomerId IS NOT NULL
+GROUP BY State
+HAVING COUNT(DISTINCT CustomerId) > 10
+ORDER BY State;
